@@ -1,0 +1,38 @@
+1.we required libraries have to include in our application program for example
+
+   #include<opencv2/core.hpp>:mat and memory allocation and deallocation
+   #include<opencv2/imgproc.hpp>:its contain specific functions for image processing and converting.
+
+
+2.After define the image path name for A.2 and A.3 for path name is string format have to store in string variable.
+      for example considering : A.2 is no_any_defect_image
+                                A.3 is defect_detect_image
+               
+
+
+3.Then next image processing : Read the image data by using of imread()api ,store that read data in to mat VARIABLE and check whether the image loading (or) image data read is successfull are not.
+                      mat image=imread(imagepath);
+                      if(!image.data)
+
+4.After convert the readed image data into a grayscale format.By using of
+                       cvtcolor(original_img,mat graysca_img,COLOR_BGR2GRAY);
+             //GRAYSCALE is converting original image into black and white image.
+
+
+5.Defect detection :Apply thresholding to binarize the image.
+       mat thresholdimg;
+       threshold(graysca_img,thresholdimage,127,255,THRESH_BINARY);
+
+
+6.Create a copy of the original image for visualiztion and find contours in the filtered difference image
+   mat outputimage=originalimage.clone();
+   
+7.Draw bounding boxes around detected defects on the output image.
+
+8.Then write the output image with highlighted defects.by using of imwrite() api.
+
+
+9.Finally display the original image ,defect and output images.By using of
+             nameWindow() and imshow() apis
+
+
